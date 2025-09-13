@@ -44,25 +44,16 @@ ENV PATH=/home/appuser/python3/bin:${PATH}
 
 # node.js
 
-# Use bash for the shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash - && sudo apt-get install -y nodejs
 
-# Create a script file sourced by both interactive and non-interactive bash shells
-ENV BASH_ENV /home/appuser/.bash_env
-RUN touch "${BASH_ENV}"
-RUN echo '. "${BASH_ENV}"' >> /home/appuser/.bashrc
-
-# Download and install nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE="${BASH_ENV}" bash
-RUN echo node > /home/appuser/.nvmrc
-RUN nvm install stable --latest-npm
 RUN mkdir /home/appuser/node_modules
-RUN ln -s /workdir/package.json /home/appuser
-RUN ln -s /workdir/package-lock.json /home/appuser
-RUN nvm use --delete-prefix v24.8.0 --silent
+RUN sudo chown -R appuser:appgroup /home/appuser
 
 # install codex
 #RUN npm install --prefix /home/appuser @openai/codex
+RUN npm install --prefix /home/appuser @openai/codex --no-package-lock --no-save
+ENV PATH=/home/appuser/node_modules/.bin:${PATH}
+
 
 RUN echo 'export PATH='${PATH}':$PATH' >> /home/appuser/.bashrc
 WORKDIR /workdir/app
