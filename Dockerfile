@@ -1,6 +1,7 @@
-FROM debian:trixie
+FROM --platform=linux/amd64 debian:trixie
 
 ENV DEBIAN_FRONTEND=noninteractive
+RUN sed -i 's#deb\.debian\.org\/debian$#ftp.jp.debian.org\/debian#' /etc/apt/sources.list.d/debian.sources 
 RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends \
