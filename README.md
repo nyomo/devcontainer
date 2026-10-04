@@ -1,3 +1,3 @@
-# Visual Studio Code用Dev Containerのテンプレート
+# VS Code用のDockerで何でもやる環境
 
-自作のDockerfileとdocker-compose.ymlのdevcontainerを使いたい時用テンプレ
+- AI(codex)をコンテナ内で自由に作業させる環境を作りたい
