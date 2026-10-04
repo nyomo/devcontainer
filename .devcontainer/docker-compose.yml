@@ -5,5 +5,5 @@ services:
       dockerfile: Dockerfile
     container_name: vscode_devcontainer
     volumes:
-      - ..:/workdir
+      - ..:/workspace
     tty: true

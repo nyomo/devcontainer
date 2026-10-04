@@ -1,7 +1,6 @@
 {
-    "name": "Dev Container Template",
-    "dockerComposeFile": "./docker-compose.yml",
+    "name": "Dev Container Base",
     "service": "devcontainer",
-    "workspaceFolder": "/workdir",
-    "postCreateCommand": "apt-get install -y --no-install-recommends gh curl ssh && git config --global --add safe.directory /workspace" 
+    "workspaceFolder": "/workspace",
+    "dockerComposeFile": "./docker-compose.yml"
 }
