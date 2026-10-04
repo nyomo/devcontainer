@@ -1,1 +1,6 @@
-gitauth
+*
+!.devcontainer/
+!.gitignore
+!*.md
+!docker-compose.json
+!Dockerfile
