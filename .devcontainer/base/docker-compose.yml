@@ -2,7 +2,7 @@ services:
   devcontainer:
     build:
       context: ../..
-      dockerfile: Dockerfile
+      dockerfile: .devcontainer/base/Dockerfile
     container_name: aiwork_base
     volumes:
       - ../..:/workspace
@@ -26,8 +26,8 @@ services:
     image: ubuntu/squid:6.6-24.04_beta
 
     volumes:
-      - ./squid.conf:/etc/squid/squid.conf:ro
-      - ./squid_allowlist.conf:/etc/squid/allowlist.conf:ro
+      - ../config/squid.conf:/etc/squid/squid.conf:ro
+      - ../config/squid_allowlist.conf:/etc/squid/allowlist.conf:ro
 
     networks:
       - sandbox

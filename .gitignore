@@ -1,6 +1,7 @@
 *
 !.devcontainer/
 !.devcontainer/AIwork
+!.devcontainer/base
 !.gitignore
 !*.md
 !docker-compose.yml
