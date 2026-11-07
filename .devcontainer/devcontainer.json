@@ -1,7 +1,17 @@
 {
-    "name": "Dev Container Template",
-    "dockerComposeFile": "./docker-compose.yml",
+    "name": "AI Work Base",
     "service": "devcontainer",
-    "workspaceFolder": "/workdir",
-    "postCreateCommand": "apt-get install -y --no-install-recommends gh curl ssh && git config --global --add safe.directory /workspace" 
+    "runServices": ["devcontainer","proxy"],
+    "workspaceFolder": "/workspace",
+    "dockerComposeFile": "./docker-compose.yml",
+    "shutdownAction": "stopCompose",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "openai.chatgpt",
+                "ms-azuretools.vscode-containers"
+            ]
+        }
+    }
+
 }
