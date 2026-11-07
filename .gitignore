@@ -1,6 +1,10 @@
 *
 !.devcontainer/
+!.devcontainer/AIwork
 !.gitignore
 !*.md
-!docker-compose.json
+!docker-compose.yml
+!devcontainer.json
 !Dockerfile
+!squid.conf
+!squid_allowlist.conf
